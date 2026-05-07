@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Thalassemia Virtual Genetic Testing Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🧬 Virtual Genetic Testing Tool</h1>
+        <h2>Beta Thalassemia - HBB Gene Analysis</h2>
+    </header>
+
+    <div class="container">
+        <!-- Disease Information Section -->
+        <section class="info-section">
+            <h3>📋 Disease Information</h3>
+            <div class="info-card">
+                <h4>Beta Thalassemia</h4>
+                <p><strong>Description:</strong> Beta thalassemia is an inherited blood disorder characterized by reduced production of hemoglobin beta chains, leading to anemia of varying severity.</p>
+                
+                <p><strong>Gene:</strong> HBB (Hemoglobin Subunit Beta)</p>
+                
+                <p><strong>Chromosomal Location:</strong> 11p15.4 (Chromosome 11, short arm, position 15.4)</p>
+                
+                <p><strong>Inheritance Pattern:</strong> Autosomal Recessive</p>
+                
+                <div class="chromosome-visual">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect x='150' y='20' width='100' height='160' fill='%234a90e2' rx='10'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3E11%3C/text%3E%3Ccircle cx='200' cy='40' r='8' fill='%23ff6b6b'/%3E%3Ctext x='220' y='45' font-size='14' fill='%23333'%3EHBB Gene%3C/text%3E%3Ctext x='200' y='195' text-anchor='middle' font-size='12' fill='%23666'%3EChromosome 11p15.4%3C/text%3E%3C/svg%3E" alt="Chromosome 11">
+                </div>
+
+                <h4>Clinical Classifications:</h4>
+                <div class="classification-grid">
+                    <div class="classification-card major">
+                        <h5>β-Thalassemia Major</h5>
+                        <p><strong>Type:</strong> Transfusion-Dependent</p>
+                        <p><strong>Genotype:</strong> β⁰/β⁰ or β⁰/β⁺</p>
+                        <p><strong>Symptoms:</strong> Severe anemia, growth retardation, bone deformities, hepatosplenomegaly</p>
+                        <p><strong>Treatment:</strong> Regular blood transfusions, iron chelation therapy</p>
+                    </div>
+                    
+                    <div class="classification-card intermedia">
+                        <h5>β-Thalassemia Intermedia</h5>
+                        <p><strong>Type:</strong> Moderate</p>
+                        <p><strong>Genotype:</strong> β⁺/β⁺ or β⁺/β⁰</p>
+                        <p><strong>Symptoms:</strong> Moderate anemia, splenomegaly, occasional transfusions needed</p>
+                        <p><strong>Treatment:</strong> Occasional transfusions, folic acid supplementation</p>
+                    </div>
+                    
+                    <div class="classification-card minor">
+                        <h5>β-Thalassemia Minor</h5>
+                        <p><strong>Type:</strong> Asymptomatic Trait</p>
+                        <p><strong>Genotype:</strong> β/β⁺ or β/β⁰</p>
+                        <p><strong>Symptoms:</strong> Usually asymptomatic, mild microcytic anemia</p>
+                        <p><strong>Treatment:</strong> Usually none required</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patient Samples Section -->
+        <section class="samples-section">
+            <h3>🧪 Patient Samples</h3>
+            <div class="samples-grid">
+                <div class="sample-card" data-sample="1">
+                    <h4>Patient Sample 1</h4>
+                    <p><strong>ID:</strong> BT-2024-001</p>
+                    <p><strong>Age:</strong> 8 years</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Mutation:</strong> IVS-1-110 (G>A) Homozygous</p>
+                    <p><strong>Expected Classification:</strong> β-Thalassemia Major</p>
+                    <button onclick="selectSample(1)" class="select-btn">Select Sample</button>
+                </div>
+
+                <div class="sample-card" data-sample="2">
+                    <h4>Patient Sample 2</h4>
+                    <p><strong>ID:</strong> BT-2024-002</p>
+                    <p><strong>Age:</strong> 25 years</p>
+                    <p><strong>Gender:</strong> Female</p>
+                    <p><strong>Mutation:</strong> IVS-1-5 (G>C) Compound Heterozygous</p>
+                    <p><strong>Expected Classification:</strong> β-Thalassemia Intermedia</p>
+                    <button onclick="selectSample(2)" class="select-btn">Select Sample</button>
+                </div>
+
+                <div class="sample-card" data-sample="3">
+                    <h4>Patient Sample 3</h4>
+                    <p><strong>ID:</strong> BT-2024-003</p>
+                    <p><strong>Age:</strong> 35 years</p>
+                    <p><strong>Gender:</strong> Female</p>
+                    <p><strong>Mutation:</strong> Codon 39 (C>T) Heterozygous</p>
+                    <p><strong>Expected Classification:</strong> β-Thalassemia Minor</p>
+                    <button onclick="selectSample(3)" class="select-btn">Select Sample</button>
+                </div>
+
+                <div class="sample-card" data-sample="4">
+                    <h4>Patient Sample 4</h4>
+                    <p><strong>ID:</strong> BT-2024-004</p>
+                    <p><strong>Age:</strong> 6 years</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Mutation:</strong> Codon 8/9 (+G) Homozygous</p>
+                    <p><strong>Expected Classification:</strong> β-Thalassemia Major</p>
+                    <button onclick="selectSample(4)" class="select-btn">Select Sample</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- In-Silico PCR Diagnostic Tool -->
+        <section class="diagnostic-section">
+            <h3>🔬 In-Silico PCR-Based Diagnostic Tool</h3>
+            
+            <div class="diagnostic-info">
+                <h4>Method: Allele-Specific PCR (AS-PCR) & DNA Sequencing</h4>
+                <p><strong>Principle:</strong> Amplification of specific HBB gene regions followed by sequencing to detect mutations</p>
+                <p><strong>Primers Used:</strong></p>
+                <ul>
+                    <li>Forward Primer: 5'-ACACAACTGTGTTCACTAGC-3'</li>
+                    <li>Reverse Primer: 5'-CAACTTCATCCACGTTCACC-3'</li>
+                </ul>
+            </div>
+
+            <div class="pcr-simulator">
+                <div class="selected-sample-info">
+                    <h4>Selected Sample: <span id="current-sample">None</span></h4>
+                    <p id="sample-details">Please select a patient sample above</p>
+                </div>
+
+                <div class="pcr-steps">
+                    <div class="step" id="step1">
+                        <h5>Step 1: DNA Extraction</h5>
+                        <div class="progress-bar"><div class="progress" id="progress1"></div></div>
+                        <p class="status" id="status1">Ready</p>
+                    </div>
+                    <div class="step" id="step2">
+                        <h5>Step 2: PCR Amplification</h5>
+                        <div class="progress-bar"><div class="progress" id="progress2"></div></div>
+                        <p class="status" id="status2">Waiting</p>
+                    </div>
+                    <div class="step" id="step3">
+                        <h5>Step 3: Gel Electrophoresis</h5>
+                        <div class="progress-bar"><div class="progress" id="progress3"></div></div>
+                        <p class="status" id="status3">Waiting</p>
+                    </div>
+                    <div class="step" id="step4">
+                        <h5>Step 4: DNA Sequencing</h5>
+                        <div class="progress-bar"><div class="progress" id="progress4"></div></div>
+                        <p class="status" id="status4">Waiting</p>
+                    </div>
+                </div>
+
+                <button onclick="runAnalysis()" id="run-btn" class="run-btn" disabled>Run Analysis</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="results" style="display:none;">
+                <h4>📊 Analysis Results</h4>
+                
+                <div class="gel-image">
+                    <h5>Gel Electrophoresis Results</h5>
+                    <canvas id="gelCanvas" width="600" height="300"></canvas>
+                </div>
+
+                <div class="sequencing-results">
+                    <h5>DNA Sequencing Results</h5>
+                    <div id="sequence-display" class="sequence-box"></div>
+                </div>
+
+                <div class="mutation-analysis">
+                    <h5>Mutation Analysis</h5>
+                    <div id="mutation-info"></div>
+                </div>
+
+                <div class="clinical-interpretation">
+                    <h5>Clinical Interpretation</h5>
+                    <div id="interpretation"></div>
+                </div>
+
+                <button onclick="generateReport()" class="report-btn">Generate PDF Report</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Virtual Genetic Testing Tool - Educational Purpose Only</p>
+        <p>Beta Thalassemia HBB Gene Analysis System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
